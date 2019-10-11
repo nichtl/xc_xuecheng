@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.serverprovider.Mapper.ScenicMapper">
+
+    <resultMap id="BeanResultMap" type="com.atguigu.serverprovider.Enity.Scenic">
+        <result column="Scenic_Name" property="Scenic_Name"  jdbcType="VARCHAR" />
+        <result column="Scenic_Introduce" property="Scenic_Introduce"  jdbcType="VARCHAR" />
+        <result column="Scenic_Tip" property="Scenic_Tip"  jdbcType="VARCHAR" />
+        <result column="Scenic_Open_Hour" property="Scenic_Open_Hour"  jdbcType="VARCHAR" />
+        <result column="Scenic_Star" property="Scenic_Star"  jdbcType="VARCHAR" />
+        <result column="Scenic_Address" property="Scenic_Address"  jdbcType="VARCHAR" />
+        <result column="Message_Source_City" property="Message_Source_City"  jdbcType="VARCHAR" />
+    </resultMap>
+<select id="QueryScenicList" resultMap="BeanResultMap">
+    select  * from scenic
+</select>
+
+
+</mapper>
