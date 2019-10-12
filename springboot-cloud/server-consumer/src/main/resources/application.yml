@@ -1,12 +1,13 @@
 spring:
   application:
-    name: server-Consumer
+    name: ServerConsumer
 server:
   port: 8200
 eureka:
-  instance:
-      prefer-ip-address: true #注册服务的时候使用提供服务的ip地址
   client:
       service-url:
-        defaultZone: http://eureka7001.com:7001/eureka/
-      register-with-eureka: false # 阻止客户端在注册中心注册
+         defaultZone: http://eureka7001.com:7001/eureka
+      register-with-eureka: true # 阻止客户端在注册中心注册
+feign:
+  hystrix:
+    enabled: false
