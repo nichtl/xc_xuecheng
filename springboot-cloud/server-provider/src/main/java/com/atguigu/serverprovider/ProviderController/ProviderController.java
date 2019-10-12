@@ -6,9 +6,7 @@ import com.atguigu.serverprovider.service.ProviderService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.ribbon.proxy.annotation.Hystrix;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 import java.util.List;
@@ -19,13 +17,13 @@ public class ProviderController {
     @Autowired
     ProviderService providerService;
    @GetMapping("/get")
-    public  String getTicklet(@PathParam("id")  Long id){
+    public  String getTicklet(){
 /*    if ( null == id){
         throw new RuntimeException("你的id"+id+"被加入黑名单");
     }*/
         return  providerService.getTickter();
     }
-    @GetMapping("/all")
+    @RequestMapping(value = "/all",method = RequestMethod.GET)
     public List<Scenic>  GetallScenic(){
        System.out.println("********"+"进水水水水");
        List<Scenic>  scenic = providerService.FindAllScenicMsg();

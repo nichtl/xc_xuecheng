@@ -3,25 +3,36 @@ server:
 spring:
   application:
     name: microservicecloud-zuul
-  profiles:
-    active:
-    - dev
-
-
 eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka
-  instance:
-    instance-id: gateway-9527.com
-    prefer-ip-address: true        # 访问时用自己的ip作为地址
+     # 访问时用自己的ip作为地址
 zuul:
-  ignored-services:  provider-server
+  #host:
+   # connect-timeout-millis: 60000
+    #socket-timeout-millis: 60000
+  #ignored-services:  ScenicServer
   routes:
-    mydept.serviceId: provider-server    # 要拦截的服务名称
-    mydept.path: /mydept/**
-  prefix: /atguigu
+    api-a:
+      path: /api/a/**
+      serviceId: ServerConsumer
+  ribbon:
+    eager-load:
+      enabled: true
 
-info:
-  app.name: my-microcloud
-  company.name: www.atguigu.com
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  #eureka:
+   # enabled: false
+#feign:
+  #hystrix:
+   # enabled: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+            thread:
+              timeoutInMilliseconds: 6000

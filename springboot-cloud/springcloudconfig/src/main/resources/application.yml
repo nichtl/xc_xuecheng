@@ -7,4 +7,11 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:nichtl/springcloud-config.git #git 仓库 ssh 地址
+          uri: git@github.com:nichtl/Config_Center.git #git 仓库 ssh 地址
+          #search-paths: respo
+          username: 1282895175@qq.com
+          password: 9093749790nb
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
